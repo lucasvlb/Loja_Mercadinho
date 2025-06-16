@@ -1,0 +1,30 @@
+body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: white; 
+      height: 100vh;
+    }
+
+    .form-signin {
+      max-width: 330px;
+      padding: 15px;
+      color: #fff;
+    }
+
+    .form-signin .form-control {
+      background-color: white;
+      border: 1px solid black;
+      color: black;
+    }
+
+    .form-signin .form-control:focus {
+      border-color: #0000;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    .form-signin label {
+      color: rgb(134, 127, 127);
+    }
