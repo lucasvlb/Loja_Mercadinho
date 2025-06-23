@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Produtos</title>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <link rel="stylesheet" href="../Bootstrap/loja.css">
+
+  <style>
+    .sidebar {
+      width: 250px;
+      display: none;
+    }
+
+    .sidebar.show {
+      display: block;
+    }
+
+    .product-card img {
+      max-height: 200px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header-->
+  <header class="navbar navbar-dark bg-dark sticky-top p-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <!-- Botão de menu para filtros -->
+      <button id="btnMostrarFiltros" class="btn btn-light me-2 fs-4" title="Filtros">
+        ☰
+      </button>
+
+    
+      <a class="navbar-brand text-white ms-2" href="#">Bem Vindo a Choma Store</a>
+
+      <!-- Barra de pesquisa -->
+      <div class="d-flex align-items-center ms-auto gap-3">
+
+        <!-- Campo de busca -->
+        <input class="form-control" id="inputBusca" type="search" placeholder="Pesquisar..."
+          style="max-width: 250px;" />
+
+        <!-- Carrinho de compras -->
+        <div class="d-flex align-items-center">
+          <button class="btn btn-outline-light position-relative" id="btnCarrinho" data-bs-toggle="modal"
+            data-bs-target="#modalCarrinho">
+            🛒
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              id="contadorCarrinho">0</span>
+          </button>
+          <strong class="text-white ms-2">Total: R$ <span id="totalCarrinho">0.00</span></strong>
+        </div>
+
+        <!-- Avatar -->
+        <div class="dropdown">
+          <img src="../Bootstrap/IMG/avatar perfil.png" alt="Avatar" class="rounded-circle dropdown-toggle" width="40" height="40"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+ 
+  <div class="d-flex">
+
+    
+    <div id="sidebarFiltros" class="sidebar bg-light p-3 border-end">
+      
+      <hr>
+
+      <div>
+        <strong>Tamanho</strong><br>
+        <div><input class="form-check-input size-filter" type="checkbox" value="P" id="checkP"> <label
+            for="checkP">P</label></div>
+        <div><input class="form-check-input size-filter" type="checkbox" value="M" id="checkM"> <label
+            for="checkM">M</label></div>
+        <div><input class="form-check-input size-filter" type="checkbox" value="G" id="checkG"> <label
+            for="checkG">G</label></div>
+      </div>
+
+      <div class="mt-3">
+        <strong>Preço até:</strong>
+        <input type="range" id="priceRange" min="0" max="1000" value="1000" class="form-range">
+        <span id="priceValue">1000</span>
+      </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="flex-grow-1 p-4">
+      
+      <div id="product-catalog" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal do Carrinho -->
+  <div class="modal fade" id="modalCarrinho" tabindex="-1" aria-labelledby="modalCarrinhoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCarrinhoLabel">Seu Carrinho</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body" id="listaCarrinho">
+          <!-- Produtos do carrinho inseridos via JavaScript -->
+        </div>
+        <div class="modal-footer">
+          <strong>Total: R$ <span id="modalTotalCarrinho">0.00</span></strong>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" onclick="window.location.href='../Bootstrap/pg_pagamento.html'">
+  Finalizar Compra
+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="../Bootstrap/loja.js"></script>
+</body>
+
+</html>
